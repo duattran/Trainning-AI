@@ -1,0 +1,55 @@
+[ Tip and Tricks list]
+Here is an exhaustive, that you could use to boost your model performance
+Data Labeling 
+• Use representative data for each class 
+• Avoid adding low-quality data 
+• Small dataset size for pre-trained models 
+• Bigger dataset size when training from scratch 
+• Identify and fix incorrect classes 
+• Balance your data distribution 
+• Use Soft-Labeling: Labeling using pre-trained models (free labeled data) 
+• Use Self-Training: Labeling using the model you are training (free labeled data) 
+• Add hard examples: images your model is struggling to detect target objects
+
+Image Size 
+• Use the highest image resolution your GPU can afford. 
+• Use progressive resizing: Train with small-size images, and gradually increase the size 
+• Use tiling: Train using image patches 
+• Use the image size recommended by the model
+
+Anchor-Boxes 
+• Use anchor boxes with a size/ratio close to target boxes 
+• Use auto-anchoring: search for the best anchors 
+• Use some anchor-free object detection models
+
+Data Augmentation (DA) 
+• Oversample images with small boxes 
+• Use transforms close to your use case 
+• Use Copy & Paste / Mosaic DA 
+• Use Mosaic DA 
+• Use heavy DA at the beginning of training 
+• Use light DA at the end of the training 
+• Use synthetic data
+
+Modeling 
+• Use larger models: they outperform smaller ones 
+• Use smaller models when training small dataset 
+• Use Focal Loss for the classification head 
+• Use GIoU Loss for the regression head (box location)
+
+Training 
+• Train from scratch if data is different than the COCO dataset 
+• Freeze the whole/part of the backbone 
+• Use suggested LR 
+• Increase LR when using multiple GPU 
+• Use the discriminative learning rate technique 
+• Decrease batch size if the loss plateaus 
+• Decrease LR if the loss plateaus 
+• Train as long as your validation loss is decreasing 
+• Add more data, and data augmentation when overfitting
+
+Inference 
+• Put the model on evaluation mode 
+• Use the same image size as in the training phase 
+• With high-resolution images, apply inference on patches/slices like in the SAHI library
+
